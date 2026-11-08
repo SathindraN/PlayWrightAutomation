@@ -1,12 +1,9 @@
+//command to setup Azure
 # First get the storage account resource ID
 az storage account show \
   --name "pwstrgrrd4320" \
   --resource-group "rrd" \
   --query id -o tsv
-
-
-
-
 
 //
 
