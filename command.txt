@@ -11,3 +11,16 @@ az storage account show \
   --assignee "a5730766-84f8-4d8e-bbed-54f85d7ff" \
   --role "Storage Blob Data Contributor" \
   --scope "$(az storage account show --name pwstrgrrd9171 --resource-group rrd --query id -o tsv)"
+
+az ad sp create-for-rbac \ --name "github-playwright" \ --role "Contributor" \ --scopes "/subscriptions/e14bfe20-520c-4b71-9a18-301be83fcfb0/resourceGroups/rcgrp" \ --json-auth
+
+az ad sp create-for-rbac \
+  --name "github-playwright" \
+  --role "Contributor" \
+  --scopes "/subscriptions/e14bfe20-520c-4b71-9a18-301be83fcfb0/resourceGroups/rcgrp" \
+  --json-auth
+
+  az role assignment create \
+  --assignee "$(az ad sp list --display-name 'github-playwright' --query '[0].appId' -o tsv)" \
+  --role "Storage Blob Data Contributor" \
+  --scope "$(az storage account show --name pwstrgrcgrpa8fa --resource-group rcgrp --query id -o tsv)"
