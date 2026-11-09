@@ -22,7 +22,7 @@
      await signIn.click();
     console.log(await page.locator("[style*='block']").textContent());
     await expect(page.locator("[style*='block']")).toContainText('Incorrect');
-    //type - fill
+    //type - fillll
     await userName.fill("");
     await userName.fill("rahulshettyacademy");
     await signIn.click();
